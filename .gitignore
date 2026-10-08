@@ -1,0 +1,14 @@
+# Build products and generated macOS resources
+build/
+outputs/
+work/
+app/icon.png
+app/AppIcon.iconset/
+app/words.json
+.DS_Store
+
+# Local editor and runtime state
+*.swp
+*.swo
+.vscode/
+.idea/
