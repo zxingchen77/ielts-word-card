@@ -521,7 +521,7 @@ static CardButton *Button(NSView *parent, NSRect frame, NSString *title, id targ
         return NO;
     }]];
     [self.table reloadData];
-    self.libraryCount.stringValue = [NSString stringWithFormat:@"%ld / %ld 词 · 双击即可背词\n自编主题入门词库，非官方完整词表", (long)self.filteredWords.count, (long)self.store.words.count];
+    self.libraryCount.stringValue = [NSString stringWithFormat:@"%ld / %ld 词 · 双击即可背词\n用右上角主题筛选；并非官方完整词表", (long)self.filteredWords.count, (long)self.store.words.count];
 }
 - (void)controlTextDidChange:(NSNotification *)notification { if (notification.object == self.search) [self filterLibrary:nil]; }
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView { return self.filteredWords.count; }
@@ -604,7 +604,7 @@ static CardButton *Button(NSView *parent, NSRect frame, NSString *title, id targ
     [self alert:@"一次一张，随时开始" detail:@"先回想词义，按空格翻卡，再用 1 / 2 / 3 评分。\n不认识：1 分钟后可重练；模糊：更早复习；记住：逐步拉长间隔。到期复习优先出现。\n\nS 发音，⌘Z 撤销评分，⌘F 搜索词库，⌘P 置顶。今日目标按不重复的“模糊 / 记住”词计数。\n\n支持导入 UTF-8 TSV：英文、中文释义、词性、搭配、例句、主题，前两列必填。使用制表符分隔，重复词会跳过。\n\n学习记录只保存在本机。关闭词卡窗口即退出；再次双击桌面快捷方式继续。" ];
 }
 - (void)about:(id)sender {
-    [self alert:@"雅思词卡 · 1.0" detail:[NSString stringWithFormat:@"一个轻量的 macOS 原生桌面词卡。\n内置 300 个自编主题入门词条，包含中文释义、搭配和例句；可导入自己的词表。\n\n词库用于雅思主题与学术词汇练习，并非官方完整词表。\n\n记录位置：%@", self.store.path]];
+    [self alert:@"雅思词卡 · 1.0" detail:[NSString stringWithFormat:@"一个轻量的 macOS 原生桌面词卡。\n内置 6000 词：300 张自编卡含搭配和例句；雅思与高频词来自 ECDICT，只有中文释义。\n\n并非官方完整词表。可导入自己的词表。\n\n记录位置：%@", self.store.path]];
 }
 - (void)applicationDidBecomeActive:(NSNotification *)notification {
     if (self.store && self.window && self.library != NSApp.keyWindow) [self refresh];

@@ -29,7 +29,7 @@ info = {
     'LSMinimumSystemVersion': '13.0',
     'NSHighResolutionCapable': True,
     'NSSupportsAutomaticTermination': False,
-    'NSHumanReadableCopyright': 'Original starter deck and local native application, 2026.'
+    'NSHumanReadableCopyright': 'Starter cards original, 2026. Additional glosses from ECDICT (MIT).'
 }
 (contents / 'Info.plist').write_bytes(plistlib.dumps(info))
 (contents / 'PkgInfo').write_bytes(b'APPL????')

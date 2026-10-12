@@ -308,8 +308,17 @@ for line in raw.strip().splitlines():
     theme, word, pos, meaning, collocation, example = line.split('|')
     words.append(dict(id=word.lower(), word=word, pos=pos, meaning=meaning,
                       collocation=collocation, example=example, theme=theme))
-assert len(words) == 300, len(words)
-assert len({w['id'] for w in words}) == len(words)
-assert all(len(w['word']) < 32 and len(w['example']) < 150 for w in words)
+seen = {w['id'] for w in words}
+for line in Path(__file__).with_name('extra_words.tsv').read_text(encoding='utf-8').splitlines():
+    word, meaning, pos, theme = line.split('\t')
+    ident = word.lower()
+    if ident in seen:
+        raise SystemExit(f'duplicate {word}')
+    words.append(dict(id=ident, word=word, pos=pos, meaning=meaning,
+                      collocation='', example='', theme=theme))
+    seen.add(ident)
+assert len(words) == 6000, len(words)
+assert len(seen) == len(words)
+assert all(w['meaning'] and len(w['word']) < 32 and len(w['meaning']) <= 300 and len(w['example']) < 150 for w in words)
 Path(__file__).with_name('words.json').write_text(json.dumps(words, ensure_ascii=False, indent=2))
 print(f'{len(words)} words, {len(set(w["theme"] for w in words))} themes')

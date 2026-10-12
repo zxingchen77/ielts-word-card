@@ -2,7 +2,7 @@
 
 A small, native macOS desktop flashcard app for IELTS vocabulary practice. It is designed to open quickly, stay lightweight, and keep study progress locally on the Mac.
 
-The app includes a 300-word starter deck across 10 IELTS-friendly themes. Each card has a Chinese meaning, collocation, example sentence, and macOS text-to-speech pronunciation.
+The app includes 6,000 cards. The first 300 are an original starter deck across 10 themes, each with a Chinese meaning, collocation, example sentence, and macOS text-to-speech pronunciation. The other 5,700 are short Chinese glosses from [ECDICT](https://github.com/skywind3000/ECDICT) (MIT, see [app/ECDICT.LICENSE](app/ECDICT.LICENSE)): IELTS-tagged entries, then the next most frequent entries. Those cards have no collocation or example.
 
 ## Features
 
@@ -59,7 +59,7 @@ Only the first two columns are required. Duplicate words are skipped.
 
 ## Privacy and data
 
-Study progress and imported words stay on the local Mac. The app does not send vocabulary, progress, or telemetry over the network. The included starter deck is an original, concise practice deck and is not an official IELTS word list.
+Study progress and imported words stay on the local Mac. The app does not send vocabulary, progress, or telemetry over the network. The first 300 cards are original. The additional glosses come from ECDICT and are not an official IELTS word list.
 
 ## License
 
